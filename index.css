@@ -5,4 +5,9 @@ nav{
 .jumbotron{
     font-style: italic;
     font-family: cursive;
+    
+}
+*{
+    font-style: italic;
+    font-family: cursive;
 }
