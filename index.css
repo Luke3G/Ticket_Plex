@@ -1,13 +1,8 @@
-nav{
-    font-style: italic;
-    font-family: cursive;
+body{
+    background-color: black;
+    font-family: 'Lobster', cursive;
+    color: white;
 }
-.jumbotron{
-    font-style: italic;
-    font-family: cursive;
-    
-}
-*{
-    font-style: italic;
-    font-family: cursive;
+table{
+    width: 300%;
 }
