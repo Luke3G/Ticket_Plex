@@ -1,10 +1,11 @@
 *{
     color: white;
- background-image: url(https://s1.ticketm.net/dam/a/135/c5d126e4-4871-4bc2-acd3-c98acf78d135_1277401_TABLET_LANDSCAPE_LARGE_16_9.jpg);
+ background-image: url(https://image.api.playstation.com/vulcan/ap/rnd/202104/1423/k8kbbj9pLdaGztkDvt2BMAZ5.jpg);
 }
 body{
     font-family: 'Lobster', cursive;
     color: white;
+    
 }
 nav{
     color: white;
@@ -22,4 +23,19 @@ color: white;
 }
 .navbar-light .navbar-nav .nav-link {
     color: rgb(255 255 255);
+}
+td{
+    text-align: center;
+}
+.table-div{
+    justify-self: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: 10%;
+    text-align: center;
+}
+footer{
+    text-align: center;
+    color: white;
+    
 }
