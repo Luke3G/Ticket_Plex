@@ -21,3 +21,50 @@ footer{
 .h3{
     text-align: center;
 }
+
+.floatone:hover{
+    transform: translateY(2px);
+    transition-timing-function: ease-in-out;
+}
+.floattwo:hover{
+    transform: translateY(2px);
+    transition-timing-function: ease-in-out;
+}
+.floatthree:hover{
+    transform: translateY(2px);
+    transition-timing-function: ease-in-out;
+}
+.concerts:hover{
+    transform: translateY(20px);
+}
+@media screen and (max-width: 740px) and (min-width: 340px) {
+    body{
+      margin: 10px 6%;
+    }
+    figure{
+      float: left;
+      width: 45%;
+      margin-right: 4.5%;
+    }
+  }
+  
+  @media screen and (max-width: 1039ox) and (min-width: 741px){
+    body{
+      margin: 25px 8%;
+    }
+    figure{
+      float: left;
+      width: 45%;
+      margin-right: 4.5%;
+    }
+  }
+  
+  @media screen and (min-width: 1040px) and (max-width: 1800px){
+  body{
+    
+  }
+  figure{
+  width: 30%;
+  margin-right: 2.5%;
+  }
+  }
