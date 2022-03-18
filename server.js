@@ -10,45 +10,33 @@ var PORT = 3000;
 
 
 
-let db = new sqlite3.Database('CNAME')
+let db = new sqlite3.Database('table')
 db.run('CREATE TABLE IF NOT EXISTS tab(id TEXT,name TEXT)');
-
-//db.run('CREATE TABLE IF NOT EXISTS CNAME(email TEXT,password TEXT, address TEXT, city TEXT, state TEXT, zip TEXT)');
-
-app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname,'./public/membership.html'));
-});
-
 
 
 app.post("/add", function (req, res) {
     db.serialize(() => {
-        db.run(
-            "INSERT INTO CNAME(email, password, address, city, state, zip) VALUES(?,?,?,?,?,?)",
-            [req.body.email, req.body.password, req.body.address, req.body.city, req.body.state, req.body.zip],
-            function (err) {
-                if (err) {
-                    return console.log(err.message);
+      db.run(
+          "INSERT INTO table(id,name) VALUES(?,?)",
+          [req.body.id, req.body.name],
+          function (err) {
+              if (err) {
+                  return console.log(err.message);
                 }
-                console.log("New customer has been added");
+                console.log("New employee has been added");
                 res.send(
-                    "New customer has been added into the database with EMAIL = " +
-                    req.body.email +
-                    " and password = " +
-                    req.body.password +
-                    " and address = " +
-                    req.body.city +
-                    " and city " +
-                    req.body.address +
-                    " and state = " +
-                    req.body.state +
-                    " and zip = " +
-                    req.body.zip
-                );
+                    "New employee has been added into the database with ID = " +
+              req.body.id +
+              " and Name = " +
+              req.body.name
+              );
             }
-        );
+            );
+        });
     });
-});
+
+
+ 
 
 //sign in crud
 app.post('/view', function (req, res) {
