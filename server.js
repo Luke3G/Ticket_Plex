@@ -7,11 +7,15 @@ var app = express();
 var PORT = 3000;
 
 // crud
+const http = require('http');
+var server = http.createServer(app);
+
 
 
 
 let db = new sqlite3.Database('table')
 db.run('CREATE TABLE IF NOT EXISTS tab(id TEXT,name TEXT)');
+
 
 
 app.post("/add", function (req, res) {
@@ -50,7 +54,7 @@ app.post('/view', function (req, res) {
             console.log("ENTRY deslayed sucsesfull")
         });
     });
-});
+});//
 
 
 // express app 
