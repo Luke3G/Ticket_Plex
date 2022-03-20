@@ -7,14 +7,18 @@ var app = express();
 var PORT = 3000;
 
 // crud
-const http = require('http');
-var server = http.createServer(app);
 
+app.get('/', function(req,res){
+    res.sendFile(path.join(__dirname,'./index.html'));
+})
 
 
 
 let db = new sqlite3.Database('table')
 db.run('CREATE TABLE IF NOT EXISTS tab(id TEXT,name TEXT)');
+
+
+
 
 
 
@@ -51,10 +55,10 @@ app.post('/view', function (req, res) {
                 return console.error(err.message);
             }
             res.send(` ID:  ${row.ID},    Name: ${row.NAME}`);
-            console.log("ENTRY deslayed sucsesfull")
+            console.log("ENTRY sucsesfull")
         });
     });
-});//
+});
 
 
 // express app 
@@ -82,4 +86,4 @@ app.get("/avalanche", function (req, res) {
 
 app.listen(PORT, function () {
     console.log("App is listening on port: " + PORT);
-})
+});
