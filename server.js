@@ -52,11 +52,11 @@ app.use(limiter);
                   if (err) {
                       return console.log(err.message);
                     }
-                    console.log("New employee has been added");
+                    console.log("New Customer Added");
                     res.send(
-                        "New employee has been added into the database with ID = " +
+                        "New Customer Added has been added into the database with ID = " +
                   req.body.id +
-                  " and Name = " +
+                  " and Password = " +
                   req.body.name
                   );
                 }
@@ -70,19 +70,7 @@ app.use(limiter);
 
  
 
-//sign in crud
-app.post('/view', function (req, res) {
-    db.serialize(() => {
-        db.each('SELECT id , name NAME FROM tab WHERE id =?', [req.body.id], function (err, row) {
-            if (err) {
-                res.send("ERROR encouterd while displaying");
-                return console.error(err.message);
-            }
-            res.send(` ID:  ${row.ID},    Name: ${row.NAME}`);
-            console.log("ENTRY sucsesfull")
-        });
-    });
-});
+
 
 
 // express app 
