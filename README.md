@@ -10,6 +10,6 @@ The consumer will be able to find Colorado concert and sporting event tickets. T
 For those who live or visting Colorado and want a easier way to find events in Colorado
 
 # Programs Used
-Youtube, Vivid Seats, Visual Stuido Code, Git Bash, Git Hub, Google Fonts, Bootstrap, Css
+Youtube, Vivid Seats, Visual Stuido Code, Git Bash, Git Hub, Google Fonts, Bootstrap, css, Java, Javascript, crud
 
-## Currentlly Implemnting Crud
+
