@@ -20,28 +20,52 @@ db.run('CREATE TABLE IF NOT EXISTS tab(id TEXT,name TEXT)');
 
 
 
+const bodyParser = require('body-parser')
+const helmet = require('helmet')
+const rateLimit = require("express-rate-limit");
 
 
-app.post("/add", function (req, res) {
-    db.serialize(() => {
-      db.run(
-          "INSERT INTO table(id,name) VALUES(?,?)",
-          [req.body.id, req.body.name],
-          function (err) {
-              if (err) {
-                  return console.log(err.message);
+
+const limiter = rateLimit({
+    winowMs: 15 * 60 * 1000, max: 100
+});
+
+//sets up the Express app to handle data parsing
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname,'./public')));
+app.use(helmet());
+app.use(limiter);
+
+
+
+
+
+
+
+    //test
+    app.post("/add", function (req, res) {
+        db.serialize(() => {
+          db.run(
+              "INSERT INTO tab(id,name) VALUES(?,?)",
+              [req.body.id, req.body.name],
+              function (err) {
+                  if (err) {
+                      return console.log(err.message);
+                    }
+                    console.log("New employee has been added");
+                    res.send(
+                        "New employee has been added into the database with ID = " +
+                  req.body.id +
+                  " and Name = " +
+                  req.body.name
+                  );
                 }
-                console.log("New employee has been added");
-                res.send(
-                    "New employee has been added into the database with ID = " +
-              req.body.id +
-              " and Name = " +
-              req.body.name
-              );
-            }
-            );
+                );
+            });
         });
-    });
+
+
+        //end of test
 
 
  
