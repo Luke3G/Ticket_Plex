@@ -14,7 +14,7 @@ app.get('/', function(req,res){
 
 
 
-let db = new sqlite3.Database('table')
+const db = new sqlite3.Database('table')
 db.run('CREATE TABLE IF NOT EXISTS tab(id TEXT,name TEXT)');
 
 
@@ -42,7 +42,7 @@ app.use(limiter);
 
 
 
-    //test
+    
     app.post("/add", function (req, res) {
         db.serialize(() => {
           db.run(
@@ -64,8 +64,22 @@ app.use(limiter);
             });
         });
 
+        //test
+        //view
+    app.post('/view', function(req,res){
+        db.serialize(()=>{
+            db.each('SELECT id , name NAME FROM table WHERE id =?',[req.body.id],function(err,row){
+                if (err){
+                    res.send("ERROR encouterd while displaying");
+                    return console.error(err.message);
+                }
+                res.send(` ID:  ${row.ID},    Name: ${row.EMAIL}`);
+                console.log("ENTRY deslayed sucsesfull")
+            });
+        });
+    });
 
-        //end of test
+        
 
 
  
